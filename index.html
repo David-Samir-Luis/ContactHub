@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <div
+          class="bg-white phone-navbar border-bottom py-3 position-fixed top-0 start-0 end-0"
+        >
+          <div class="container-fluid container-md">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="title d-flex align-items-center">
+                <!-- <span class="fa-stack fa-xl text-violet-600">
+                  <i class="fa-solid fa-square fa-stack-2x"></i>
+                  <i
+                    class="fa-solid fa-address-book fa-stack-1x fa-inverse"
+                  ></i>
+                  </span> -->
+
+                <div
+                  class="navbar__book-icon d-flex justify-content-center align-items-center me-2"
+                >
+                  <i class="fa-solid fa-address-book text-white fa-1x"></i>
+                </div>
+
+                <div class="navbar__header">
+                  <h1 class="fs-4 fw-bold my-0">
+                    Contact<span class="text-violet-600">Hub</span>
+                  </h1>
+                  <span class="fs-12px fw-semibold text-gray-500 d-block"
+                    >Smart Contact Manager</span
+                  >
+                </div>
+              </div>
+              <div class="profile">
+                <ul class="list-unstyled p-0 d-flex gap-md-2 gap-1 mb-0">
+                  <li>
+                    <button
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                      type="button"
+                      id="addBtn"
+                      class="border-0 bg-violet-600 fw-bold text-white small d-flex flex-nowrap"
+                    >
+                      <span class=""><i class="fa-solid fa-plus"></i></span>
+                      <span class="ms-1">Add</span>
+                      <span class="d-none d-md-inline ms-1">Contact</span>
+                    </button>
+                    <!-- ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+                    <!-- Button trigger modal -->
+                    <!-- <button
+                      //type="button" 
+                      //class="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      Launch static backdrop modal
+                    </button> -->
+
+                    <!-- Modal -->
+                    <div
+                      class="modal fade"
+                      id="staticBackdrop"
+                      data-bs-backdrop="static"
+                      data-bs-keyboard="false"
+                      tabindex="-1"
+                      aria-labelledby="staticBackdropLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1
+                              class="modal-title fs-5"
+                              id="staticBackdropLabel"
+                            >
+                              Modal title
+                            </h1>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">...</div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                              Understood
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+                  </li>
+                  <li>
+                    <span
+                      class="fa-stack fa-lg text-transparent d-none d-md-inline-block"
+                    >
+                      <i class="fa-solid fa-square fa-stack-2x"></i>
+                      <i
+                        class="fa-solid fa-bell fa-stack-1x text-gray-500 fa-xs"
+                      ></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span
+                      class="fa-stack fa-lg text-transparent d-none d-md-inline-block"
+                    >
+                      <i class="fa-solid fa-square fa-stack-2x"></i>
+                      <i
+                        class="fa-solid fa-gear fa-stack-1x text-gray-500 fa-xs"
+                      ></i>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="profile-img overflow-hidden">
+                      <img
+                        class="w-100"
+                        src="images/avatar-3.jpg"
+                        alt="profile picture"
+                      />
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="home my-4">
+        <div class="container-fluid container-md">
+          <div class="row gy-3">
+            <!-- total -->
+            <div class="col-6 col-md-4">
+              <div
+                class="home-count d-flex align-items-center gap-3 p-4 bg-white shadow-sm"
+              >
+                <!-- users icon -->
+                <div
+                  class="numbers-icon bg-blue-600 d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-solid fa-users text-white"></i>
+                </div>
+                <!-- total number -->
+                <div>
+                  <span class="text-gray-500 fs-12px fw-bold d-block"
+                    >TOTAL</span
+                  >
+                  <span class="total-number fs-4 fw-bold">0</span>
+                </div>
+              </div>
+            </div>
+            <!-- Favorites -->
+            <div class="col-6 col-md-4">
+              <div
+                class="home-count d-flex align-items-center gap-3 p-4 bg-white shadow-sm"
+              >
+                <!-- star icon -->
+                <div
+                  class="numbers-icon bg-orange-500 d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-solid fa-star text-white"></i>
+                </div>
+                <!-- Favorites number -->
+                <div>
+                  <span class="text-gray-500 fs-12px fw-bold d-block"
+                    >FAVORITES</span
+                  >
+                  <span class="favorites-number fs-4 fw-bold">0</span>
+                </div>
+              </div>
+            </div>
+            <!-- Emergency -->
+            <div class="col-6 col-md-4">
+              <div
+                class="home-count d-flex align-items-center gap-3 p-4 bg-white shadow-sm"
+              >
+                <!-- heart-pulse icon -->
+                <div
+                  class="numbers-icon bg-red-600 d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-solid fa-heart-pulse text-white"></i>
+                </div>
+                <!-- Emergency number -->
+                <div>
+                  <span class="text-gray-500 fs-12px fw-bold d-block"
+                    >EMERGENCY</span
+                  >
+                  <span class="emergency-number fs-4 fw-bold">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact row">
+            <div class="search col-xl-9">
+              <!-- search header and input search -->
+              <div class="search-contacts my-4">
+                <!-- search header -->
+                <h2 class="fs-3 fw-bold mb-1">All Contacts</h2>
+                <span class="text-gray-500"
+                  >Manage and organize your
+                  <span class="total-number">0</span> contacts</span
+                >
+                <!-- input search -->
+                <div class="search-item input-group my-4">
+                  <span class="input-group-text" id="searchIcon"
+                    ><i class="fa-solid fa-magnifying-glass text-gray-500"></i
+                  ></span>
+                  <input
+                    id="search-input"
+                    type="text"
+                    class="form-control"
+                    placeholder="Search by name, phone, or email..."
+                    aria-label="Username"
+                    aria-describedby="searchIcon"
+                  />
+                </div>
+              </div>
+
+              <div class="search-results row gx-3 gy-3">
+                <div class="no-results">
+                  <!-- contact icon -->
+                  <div
+                    class="m-auto contact-icon d-flex justify-content-center align-items-center"
+                  >
+                    <i class="fa-solid fa-address-book fa-2x text-gray-300"></i>
+                  </div>
+                  <span class="d-block mt-3 text-center text-gray-500 fw-bold"
+                    >No contacts found</span
+                  >
+                  <span class="d-block text-center text-gray-400"
+                    >Click "Add Contact" to get started</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 marked col-xl-3">
+              <div class="sticky-from-top position-sticky">
+                <!--^ marked-favorites -->
+                <div
+                  class="marked-favorites mb-4 border rounded-16px shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="marked-head bg-orange-50 d-flex align-items-center gap-2 border-bottom"
+                  >
+                    <!-- favorite icon -->
+                    <div
+                      class="marked-icon bg-orange-500 d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fa-solid fa-star text-white fa-xs"></i>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <h3 class="fs-6 fw-bold my-0">Favorites</h3>
+                      <span class="fs-12px text-gray-500"
+                        >Quick access
+                        <span class="d-none d-xxl-inline"
+                          >to starred contacts</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                  <div class="marked-body bg-white p-3 row gx-2 gy-2">
+                    <div
+                      class="marked-body__content d-flex align-items-center justify-content-center"
+                    >
+                      <span class="fs-6 text-gray-400">No favorites yet</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!--^ marked-emergency -->
+                <div
+                  class="marked-emergency border rounded-16px shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="marked-head bg-red-50 d-flex align-items-center gap-2 border-bottom"
+                  >
+                    <!-- emergency icon -->
+                    <div
+                      class="marked-icon bg-red-600 d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fa-solid fa-heart-pulse text-white fa-xs"></i>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <h3 class="fs-6 fw-bold my-0">Emergency</h3>
+                      <span class="fs-12px text-gray-500 d-xxl-none"
+                        >Urgent contacts</span
+                      >
+                      <span class="fs-12px text-gray-500 d-none d-xxl-inline"
+                        >Important contacts for urgent calls</span
+                      >
+                    </div>
+                  </div>
+                  <div class="marked-body bg-white p-3 row g-2">
+                    <!-- <div
+                      class="marked-body__content d-flex align-items-center justify-content-center"
+                    >
+                      <span class="fs-6 text-gray-400"
+                        >No emergency contacts</span
+                      >
+                    </div> -->
+
+                    <!-- emergency-item -->
+                    <div class="col-12 col-md-6">
+                      <a
+                        href="tel"
+                        class="emergency-item p-2 border rounded-12px text-decoration-none d-flex justify-content-between align-items-center"
+                      >
+                        <!-- left side  -->
+                        <div class="d-flex align-items-center gap-1">
+                          <div
+                            class="sidebar-item__info bg-blue-600 small fw-bold text-white d-flex justify-content-center align-items-center"
+                          >
+                            P
+                          </div>
+                          <div class="">
+                            <span
+                              class="text-gray-900 fs-12px d-block fw-semibold"
+                              >peter</span
+                            >
+                            <span class="fs-10px text-gray-400 d-block"
+                              >01289296507</span
+                            >
+                          </div>
+                        </div>
+                        <!-- right side  -->
+                        <div
+                          class="sidebar-call-icon text-emerald-600 bg-emerald-100 d-flex justify-content-center align-items-center"
+                        >
+                          <i class="fa-solid fa-phone fa-2xs"></i>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
