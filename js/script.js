@@ -142,7 +142,7 @@ var searchResultItem = `<div class="col-md-6">
                 </div>`;
 
 var addToFavoriteItem = ` <!-- favorite-item -->
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 col-xl-12">
                       <a
                         href="tel"
                         class="favorite-item p-2 border rounded-12px text-decoration-none d-flex justify-content-between align-items-center"
@@ -174,7 +174,7 @@ var addToFavoriteItem = ` <!-- favorite-item -->
                     </div>`;
 
 var addToemergencyItem = `<!-- emergency-item -->
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 col-xl-12">
                       <a
                         href="tel"
                         class="emergency-item p-2 border rounded-12px text-decoration-none d-flex justify-content-between align-items-center"
