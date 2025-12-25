@@ -1,223 +1,3 @@
-//^ garbg
-// const modal = bootstrap.Modal.getInstance(
-//   document.getElementById("staticBackdrop")
-// );
-
-var searchResultItem = `<div class="col-md-6">
-                  <div class="shadow-sm contact-item">
-                    <div class="px-3 pt-3 pb-2 bg-white">
-                      <!--^ contact-item__header -->
-                      <div
-                        class="contact-item__header d-flex align-items-center gap-3"
-                      >
-                        <div
-                          class="contact-item__header-icon position-relative text-white d-flex justify-content-center align-items-center"
-                        >
-                        <img
-                              src="images/avatar-3.jpg"
-                              class="w-100 rounded-12px"
-                              alt="name"
-                            />
-                          <span d-none class="fs-5 fw-bold">D</span>
-                          <!--^ favorite icon shown when added to favorite -->
-                          <div
-                            class="icon-badge border border-2 border-white position-absolute star-position rounded-circle bg-amber-400 d-flex justify-content-center align-items-center"
-                          >
-                            <i class="fa-solid fa-star text-white fa-2xs"></i>
-                          </div>
-                          <!--^ emergency icon shown when added to emergency -->
-                          <div
-                            class="icon-badge border border-2 border-white position-absolute heart-position rounded-circle bg-rose-500 d-flex justify-content-center align-items-center"
-                          >
-                            <i
-                              class="fa-solid fa-heart-pulse text-white fa-2xs"
-                            ></i>
-                          </div>
-                        </div>
-                        <div class="contact-item__header-info">
-                          <span class="fw-bold truncate-ch">david</span>
-                          <div
-                            class="mt-1 d-flex flex-nowrap align-items-center gap-2"
-                          >
-                            <div
-                              class="call-icon d-flex justify-content-center align-items-center"
-                            >
-                              <i
-                                class="fa-solid fa-phone fa-2xs text-blue-600"
-                              ></i>
-                            </div>
-                            <span class="text-gray-500 truncate-ch"
-                              >01283288546
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <!--^ contact-item__body -->
-                      <div class="contact-item__body mt-3">
-                        <!-- email -->
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                          <div
-                            class="email size d-flex justify-content-center align-items-center"
-                          >
-                            <i
-                              class="fa-solid fa-envelope fa-xs text-violet-600"
-                            ></i>
-                          </div>
-                          <span class="text-gray-600 truncate-ch"
-                            >davidsamir@gmail.com</span
-                          >
-                        </div>
-                        <!-- address -->
-                        <div class="d-flex align-items-center gap-2">
-                          <div
-                            class="address size d-flex justify-content-center align-items-center"
-                          >
-                            <i
-                              class="fa-solid fa-location-dot fa-xs text-emerald-600"
-                            ></i>
-                          </div>
-                          <span class="text-gray-600 truncate-ch"
-                            >wefewggggggggggwrgrehtrhyr5jergegeefewfwaef</span
-                          >
-                        </div>
-                        <div class="mt-3">
-                          <span
-                            class="me-1 d-inline-block py-1 fs-12px fw-semibold px-2 rounded-3 bg-amber-100 text-amber-700"
-                          >
-                            school
-                          </span>
-                          <span
-                            class="d-inline-block py-1 text-rose-600 fs-12px fw-semibold px-2 rounded-3 bg-rose-50"
-                          >
-                            <i class="fa-solid fa-heart-pulse fa-sm"></i>
-                            <span>Emergency</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <!--^ contact-item__footer -->
-                    <div
-                      class="contact-item__footer d-flex justify-content-between"
-                    >
-                      <!--^ call number or send email -->
-                      <div class="d-flex gap-2">
-                        <!-- call number  -->
-
-                        <a
-                          href="tel"
-                          class="text-decoration-none call-number footer__icon bg-emerald-50 d-flex justify-content-center align-items-center"
-                        >
-                          <i class="fa-solid fa-phone text-emerald-600"></i>
-                        </a>
-
-                        <!-- send email  -->
-                        <a
-                          href="mailto"
-                          class="text-decoration-none footer__icon send-email text-violet-600 bg-violet-50 d-flex justify-content-center align-items-center"
-                        >
-                          <i class="fa-solid fa-envelope"></i>
-                        </a>
-                      </div>
-                      <!--^ edit -->
-                      <div class="edit">
-                        <div class="d-flex gap-2">
-                          <!-- add-to-favorite -->
-                          <button
-                            class="add-to-favorite text-gray-400 bg-gray-50 border-0 footer__icon d-flex justify-content-center align-items-center"
-                          >
-                            <i class="fa-regular fa-star"></i>
-                          </button>
-                          <!-- add-to-emergency -->
-                          <button
-                            class="add-to-emergency text-gray-400 bg-gray-50 border-0 footer__icon d-flex justify-content-center align-items-center"
-                          >
-                            <i class="fa-regular fa-heart"></i>
-                          </button>
-                          <!-- edit-contact -->
-                          <button
-                            class="edit-contact text-gray-400 bg-gray-50 border-0 footer__icon d-flex justify-content-center align-items-center"
-                          >
-                            <i class="fa-solid fa-pen"></i>
-                          </button>
-                          <!-- delete -->
-                          <button
-                            class="delete-contact text-gray-400 bg-gray-50 border-0 footer__icon d-flex justify-content-center align-items-center"
-                          >
-                            <i class="fa-solid fa-trash"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>`;
-
-var addToFavoriteItem = ` <!-- favorite-item -->
-                    <div class="col-12 col-md-6 col-xl-12">
-                      <a
-                        href="tel"
-                        class="favorite-item p-2 border rounded-12px text-decoration-none d-flex justify-content-between align-items-center"
-                      >
-                        <!-- left side  -->
-                        <div class="d-flex align-items-center gap-1">
-                          <div
-                            class="sidebar-item__info bg-blue-600 small fw-bold text-white d-flex justify-content-center align-items-center"
-                          >
-                            P
-                          </div>
-                          <div class="">
-                            <span
-                              class="text-gray-900 fs-12px d-block fw-semibold"
-                              >peter</span
-                            >
-                            <span class="fs-10px text-gray-400 d-block"
-                              >01289296507</span
-                            >
-                          </div>
-                        </div>
-                         <!-- right side  -->
-                        <div
-                          class="sidebar-call-icon text-emerald-600 bg-emerald-100 d-flex justify-content-center align-items-center"
-                        >
-                          <i class="fa-solid fa-phone fa-2xs"></i>
-                        </div>
-                      </a>
-                    </div>`;
-
-var addToemergencyItem = `<!-- emergency-item -->
-                    <div class="col-12 col-md-6 col-xl-12">
-                      <a
-                        href="tel"
-                        class="emergency-item p-2 border rounded-12px text-decoration-none d-flex justify-content-between align-items-center"
-                      >
-                        <!-- left side  -->
-                        <div class="d-flex align-items-center gap-1">
-                          <div
-                            class="sidebar-item__info bg-blue-600 small fw-bold text-white d-flex justify-content-center align-items-center"
-                          >
-                            P
-                          </div>
-                          <div class="">
-                            <span
-                              class="text-gray-900 fs-12px d-block fw-semibold"
-                              >peter</span
-                            >
-                            <span class="fs-10px text-gray-400 d-block"
-                              >01289296507</span
-                            >
-                          </div>
-                        </div>
-                        <!-- right side  -->
-                        <div
-                          class="sidebar-call-icon text-emerald-600 bg-emerald-100 d-flex justify-content-center align-items-center"
-                        >
-                          <i class="fa-solid fa-phone fa-2xs"></i>
-                        </div>
-                      </a>
-                    </div>`;
-
-// addToFavoriteItem and addToemergencyItem almost same except first comment and
-// classes  favorite-item in favorite while emergency-item in emergency
-
 // ^ select
 var contactImage = document.querySelector("#contactImage");
 var inputImage = document.querySelector("#inputImage");
@@ -241,25 +21,45 @@ var TotalContacts2 = document.querySelector("#TotalContacts2");
 var totalEmergency = document.querySelector("#totalEmergency");
 var totalFavorites = document.querySelector("#totalFavorites");
 var addBtn = document.querySelector("#addBtn");
+var regex = {
+  fullName: { exp: /^\s*[a-zA-Z][a-zA-Z ]{0,48}[a-zA-Z]\s*$/, isValid: false },
+  phoneNumber: {
+    exp: /^(002|2|20|\+2|\+20)?01[0125][0-9]{8}$/,
+    isValid: false,
+  },
+  email: {
+    exp: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/gm,
+    isValid: true,
+  },
+};
 
-// bootstrap so you can close form
+//* bootstrap so you can close form
 const modalElement = document.getElementById("staticBackdrop");
 const modal = new bootstrap.Modal(modalElement);
+
+//* list of all contacts
 var contactList = [];
+
+//* special lists
+var favoriteList = [];
+var emergencyList = [];
+
+//* index of contact to update
+var updateIndex;
+var addNewItemFlag;
+
+//* restore contacts from localStorage
 if (localStorage.getItem("contactList")) {
   contactList = JSON.parse(localStorage.getItem("contactList"));
   displayContacts(contactList);
 }
-var favoriteList = [];
-var emergencyList = [];
-var updateIndex;
-var addNewItemFlag;
 
 // ^  events
 
 // ^ addBtn event
 addBtn.addEventListener("click", function () {
   addNewItemFlag = true;
+  setIsvalidRegex(false);
 });
 //^ diplay the input photo in form whenever user change it
 inputImage.addEventListener("change", function () {
@@ -268,27 +68,30 @@ inputImage.addEventListener("change", function () {
 
 // ^ btnSaveContact event
 btnSaveContact.addEventListener("click", function () {
-  SaveContact();
-  displayContacts(contactList);
-  updateInputs();
-  storeInLocalStorage();
-  modal.hide();
-  if (addNewItemFlag) {
-    Swal.fire({
-      icon: "success",
-      title: "Added!",
-      text: "Contact has been added successfully.",
-      showConfirmButton: false,
-      timer: 1000,
-    });
-  } else {
-    Swal.fire({
-      icon: "success",
-      title: "Updated!",
-      text: "Contact has been updated successfully.",
-      showConfirmButton: false,
-      timer: 1000,
-    });
+  var alertflag = inputsAlert();
+  if (alertflag) {
+    SaveContact();
+    displayContacts(contactList);
+    updateInputs();
+    storeInLocalStorage();
+    modal.hide();
+    if (addNewItemFlag) {
+      Swal.fire({
+        icon: "success",
+        title: "Added!",
+        text: "Contact has been added successfully.",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Updated!",
+        text: "Contact has been updated successfully.",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
   }
 });
 // ^ btnCancel event
@@ -301,9 +104,22 @@ xBtn.addEventListener("click", function () {
   updateInputs();
   modal.hide();
 });
-
+// ^ searchInput event
 searchInput.addEventListener("input", function () {
-  searchContact(searchInput.value);
+  searchContact();
+});
+
+// ^ fullName change event
+fullName.addEventListener("input", function () {
+  validateInputs(fullName);
+});
+// ^ phoneNumber change event
+phoneNumber.addEventListener("input", function () {
+  validateInputs(phoneNumber);
+});
+// ^ email change event
+email.addEventListener("input", function () {
+  validateInputs(email);
 });
 
 function SaveContact() {
@@ -319,8 +135,10 @@ function SaveContact() {
 //& not update favoriteList and emergencyList
 function displayContacts(list, searchflag) {
   cartona = "";
-  favoriteList = [];
-  emergencyList = [];
+  if (!searchflag) {
+    favoriteList = [];
+    emergencyList = [];
+  }
   if (list.length === 0) {
     cartona = `<div class="no-results">
                   <!-- contact icon -->
@@ -498,13 +316,14 @@ function displayContacts(list, searchflag) {
                         </a>`
                           : ""
                       }
+                      
                       </div>
                       <!--^ edit -->
                       <div class="edit">
                         <div class="d-flex gap-2">
                           <!-- add-to-favorite -->
                           <button
-                          onclick="toggleFavorite(${list[i].id})"
+                          onclick="toggleSpecial(${true},${list[i].id})"
                             class="add-to-favorite ${
                               list[i].favoriteCheckbox
                                 ? "favorite-icon-clicked"
@@ -517,7 +336,7 @@ function displayContacts(list, searchflag) {
                           </button>
                           <!-- add-to-emergency -->
                           <button
-                            onclick="togglEemergency(${list[i].id})"
+                            onclick="toggleSpecial(${false},${list[i].id})"
                             class="add-to-emergency ${
                               list[i].emergencyCheckbox
                                 ? "emergency-icon-clicked"
@@ -573,23 +392,20 @@ function getIndexFromId(id) {
   return -1;
 }
 
-function toggleFavorite(id) {
+//* if element in special list (favorite or emergency) it will remove
+//* if element NOT in special list (favorite or emergency) it will add
+function toggleSpecial(isFavorite, id) {
   var index = getIndexFromId(id);
-
-  contactList[index].favoriteCheckbox = !contactList[index].favoriteCheckbox;
-
+  if (isFavorite) {
+    contactList[index].favoriteCheckbox = !contactList[index].favoriteCheckbox;
+  } else {
+    contactList[index].emergencyCheckbox =
+      !contactList[index].emergencyCheckbox;
+  }
+  storeInLocalStorage();
   displayContacts(contactList);
-  //! add to favorite
-  // contactList[index].favoriteCheckbox
-  //   ? addToSpecialList(true, contactList[index])
-  //   : removeFromSpecialList(true, contactList[index].id);
 }
-function togglEemergency(id) {
-  var index = getIndexFromId(id);
-  contactList[index].emergencyCheckbox = !contactList[index].emergencyCheckbox;
-  displayContacts(contactList);
-  //! add to emergency
-}
+
 // ^ delete Contact
 function deleteContact(id) {
   var index = getIndexFromId(id);
@@ -620,14 +436,18 @@ function deleteContact(id) {
     }
   });
 }
-
+//zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 function updateInputs(config) {
+  //* if not set to null last inserted image will be
+  //* always there and when add new contact it will be added to it
   inputImage.value = null;
+
   if (config) {
     updateImageInForm(config.imageSrc);
   } else {
     updateImageInForm();
   }
+
   fullName.value = config ? config.fullName : null;
   phoneNumber.value = config ? config.phoneNumber : null;
   email.value = config ? config.email : null;
@@ -642,6 +462,7 @@ function storeInLocalStorage() {
   localStorage.setItem("contactList", JSON.stringify(contactList));
 }
 function getelementsToEdit(id) {
+  setIsvalidRegex(true);
   addNewItemFlag = false;
   var index = getIndexFromId(id);
   updateIndex = index;
@@ -662,28 +483,20 @@ function addNewContact() {
     emergencyCheckbox: emergencyCheckbox.checked,
   };
   contactList.push(newcontact);
-  console.log(newcontact);
-
-  // if (newcontact.favoriteCheckbox) {
-  //   addToSpecialList(true, newcontact);
-  // }
-  // if (newcontact.emergencyCheckbox) {
-  //   addToSpecialList(false, newcontact);
-  // }
 }
-function updateContact() {
-  // if (contactList[updateIndex].favoriteCheckbox !== favoriteCheckbox.checked) {
-  //   favoriteCheckbox.checked
-  //     ? addToSpecialList(true, contactList[updateIndex])
-  //     : removeFromSpecialList(true, updateIndex);
-  // }
-  // if (contactList[updateIndex].emergencyCheckbox) {
-  //   addToSpecialList(false, contactList[updateIndex]);
-  // }
 
-  contactList[updateIndex].imageSrc = inputImage.files[0]
-    ? `images/${inputImage.files[0]?.name}`
-    : 0;
+//z2
+function updateContact() {
+  //* inputImage is input of type file and can't be set when getting values to update (we clear in updateInputs)
+  //* so in updateContact you can't get the src of image from inputImage since it's cleared
+  // * but luckly we have the src of the img in child of contactImage that in the form
+  if (contactImage.children[0].tagName === "IMG") {
+    contactList[updateIndex].imageSrc =
+      contactImage.children[0].getAttribute("src");
+  } else {
+    contactList[updateIndex].imageSrc = 0;
+  }
+
   contactList[updateIndex].fullName = fullName.value.trim();
   contactList[updateIndex].phoneNumber = phoneNumber.value;
   contactList[updateIndex].email = email.value.trim();
@@ -782,8 +595,8 @@ function updateImageInForm(source) {
   }
 }
 
-function searchContact(text) {
-  text = text.toLowerCase();
+function searchContact() {
+  text = searchInput.value.toLowerCase();
   var resultList = [];
   for (let i = 0; i < contactList.length; i++) {
     var contact = contactList[i];
@@ -798,15 +611,85 @@ function searchContact(text) {
   displayContacts(resultList, true);
 }
 
-// function removeFromSpecialList(favoriteFlag, id) {
-//   var list = favoriteFlag ? favoriteList : emergencyList;
-//   for (let i = 0; i < list.length; i++) {
-//     if (list[i].id === id) {
-//       list.splice(i, 1);
-//     }
-//   }
-// }
-// function addToSpecialList(favoriteFlag, item) {
-//   var list = favoriteFlag ? favoriteList : emergencyList;
-//   list.push(item);
-// }
+function validateInputs(element) {
+  if (element.value == "") {
+    //* email is also valid if empty since it's not required
+    regex[element.id].isValid = element.id === "email";
+
+    element.classList.remove("border-color-invalid");
+    element.nextElementSibling.classList.add("d-none");
+  } else if (regex[element.id].exp.test(element.value)) {
+    regex[element.id].isValid = true;
+    element.classList.remove("border-color-invalid");
+    element.nextElementSibling.classList.add("d-none");
+  } else {
+    regex[element.id].isValid = false;
+    element.classList.add("border-color-invalid");
+    element.nextElementSibling.classList.remove("d-none");
+  }
+}
+
+function inputsAlert() {
+  var Duplicate = isDuplicateNumber(phoneNumber.value);
+  var isAlert = false;
+  var alertTitle = "";
+  var alertText = "";
+  if (fullName.value == "") {
+    var isAlert = true;
+    var alertTitle = "Missing Name";
+    var alertText = "Please enter a name for the contact!";
+  } else if (!regex.fullName.isValid) {
+    var isAlert = true;
+    var alertTitle = "Invalid Name";
+    var alertText =
+      "Name should contain only letters and spaces (2-50 characters)";
+  } else if (phoneNumber.value == "") {
+    var isAlert = true;
+    var alertTitle = "Missing Phone";
+    var alertText = "Please enter a phone number!";
+  } else if (!regex.phoneNumber.isValid) {
+    var isAlert = true;
+    var alertTitle = "Invalid Phone";
+    var alertText =
+      "Please enter a valid Egyptian phone number (e.g., 01012345678 or +201012345678)";
+  }
+  //* check duplication in case of new phone contact only (no check if edit)
+  else if (Duplicate) {
+    var isAlert = true;
+    var alertTitle = "Duplicate Phone Number";
+    var alertText = "A contact with this phone number already exists: david";
+  } else if (!regex.email.isValid) {
+    var isAlert = true;
+    var alertTitle = "Invalid Email";
+    var alertText = "Please enter a valid email address";
+  }
+  if (isAlert) {
+    Swal.fire({
+      title: alertTitle,
+      text: alertText,
+      icon: "error",
+      target: modalElement,
+    });
+    isAlert = false;
+    return false;
+  } else {
+    return true;
+  }
+}
+function isDuplicateNumber(item) {
+  for (let i = 0; i < contactList.length; i++) {
+    if (contactList[i].phoneNumber === item) {
+      //* incase of add new contact if duplication was found it will return true
+      //* incase of edit ,current contact shoulded be considered as duplication and look for other duplicate
+      if (!(!addNewItemFlag && i === updateIndex)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+function setIsvalidRegex(flag) {
+  regex.fullName.isValid = flag;
+  regex.phoneNumber.isValid = flag;
+  regex.email.isValid = true;
+}

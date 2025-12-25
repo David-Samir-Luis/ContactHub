@@ -18,13 +18,6 @@
           <div class="container-fluid container-md">
             <div class="d-flex justify-content-between align-items-center">
               <div class="title d-flex align-items-center">
-                <!-- <span class="fa-stack fa-xl text-violet-600">
-                  <i class="fa-solid fa-square fa-stack-2x"></i>
-                  <i
-                    class="fa-solid fa-address-book fa-stack-1x fa-inverse"
-                  ></i>
-                  </span> -->
-
                 <div
                   class="navbar__book-icon d-flex justify-content-center align-items-center me-2"
                 >
@@ -83,7 +76,7 @@
                               aria-label="Close"
                             ></button>
                           </div>
-                          <div class="modal-body">
+                          <div class="modal-body" tabindex="0">
                             <!-- image icon  -->
                             <div
                               id="contactImage"
@@ -123,6 +116,10 @@
                               class="form-control bg-gray-50"
                               placeholder="Enter full name"
                             />
+                            <div class="mt-1 text-rose-500 fs-12px d-none">
+                              Name should contain only letters and spaces (2-50
+                              characters)
+                            </div>
                             <!-- Phone Number -->
                             <label for="phoneNumber" class="form-label mt-4"
                               >Phone Number
@@ -135,7 +132,9 @@
                               class="form-control bg-gray-50"
                               placeholder="e.g., 01012345678"
                             />
-
+                            <div class="mt-1 text-rose-500 fs-12px d-none">
+                              Please enter a valid Egyptian phone number
+                            </div>
                             <!-- Email Address -->
                             <label for="email" class="form-label mt-4"
                               >Email Address
@@ -147,6 +146,9 @@
                               class="form-control bg-gray-50"
                               placeholder="name@example.com"
                             />
+                            <div class="mt-1 text-rose-500 fs-12px d-none">
+                              Please enter a valid email address
+                            </div>
                             <!-- Address -->
                             <label for="address" class="form-label mt-4">
                               Address

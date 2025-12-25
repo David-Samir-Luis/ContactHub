@@ -125,7 +125,7 @@ body {
   background-color: #ebe6e7;
 }
 .save-btn:hover {
-  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.4); /* Soft purple shadow */
+  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.4);
 }
 
 .phone-navbar {
@@ -346,4 +346,8 @@ body {
 }
 #searchInput:focus {
   box-shadow: none;
+}
+
+.border-color-invalid {
+  border-color: oklch(63.7% 0.237 25.331) !important;
 }
