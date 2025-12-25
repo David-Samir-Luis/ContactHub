@@ -266,6 +266,9 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.min-width-0 {
+  min-width: 0px;
+}
 
 .contact-item__footer {
   border-top: 1px solid #f6f3f4;
@@ -306,7 +309,6 @@ body {
 .sidebar-item__info {
   width: 40px;
   height: 40px;
-  border-radius: 8px;
 }
 .sidebar-call-icon {
   width: 24px;
@@ -325,4 +327,23 @@ body {
   width: 96px;
   height: 96px;
   border-radius: 50%;
+}
+.favorite-icon-clicked {
+  color: oklch(82.8% 0.189 84.429);
+  background-color: oklch(98.7% 0.022 95.277);
+}
+.favorite-icon-not-clicked {
+  color: #99a1af;
+  background-color: oklch(98.5% 0.002 247.839);
+}
+.emergency-icon-clicked {
+  color: oklch(64.5% 0.246 16.439);
+  background-color: oklch(96.9% 0.015 12.422);
+}
+.emergency-icon-not-clicked {
+  color: #99a1af;
+  background-color: oklch(98.5% 0.002 247.839);
+}
+#searchInput:focus {
+  box-shadow: none;
 }

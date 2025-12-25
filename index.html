@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
   </head>
   <body>
     <main>
@@ -53,16 +54,6 @@
                       <span class="ms-1">Add</span>
                       <span class="d-none d-md-inline ms-1">Contact</span>
                     </button>
-                    <!-- ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
-                    <!-- Button trigger modal -->
-                    <!-- <button
-                      //type="button" 
-                      //class="btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#staticBackdrop"
-                    >
-                      Launch static backdrop modal
-                    </button> -->
 
                     <!-- Modal -->
                     <div
@@ -86,16 +77,17 @@
                               Add New Contact
                             </h1>
                             <button
+                              id="xBtn"
                               type="button"
                               class="btn-close"
-                              data-bs-dismiss="modal"
                               aria-label="Close"
                             ></button>
                           </div>
                           <div class="modal-body">
                             <!-- image icon  -->
                             <div
-                              class="m-auto contact-img text-white bg-blue-600 d-flex justify-content-center align-items-center"
+                              id="contactImage"
+                              class="m-auto overflow-hidden contact-img text-white bg-blue-600 d-flex justify-content-center align-items-center"
                             >
                               <i class="fa-solid fa-user fa-2xl"></i>
                             </div>
@@ -145,13 +137,13 @@
                             />
 
                             <!-- Email Address -->
-                            <label for="emailAddress" class="form-label mt-4"
+                            <label for="email" class="form-label mt-4"
                               >Email Address
                             </label>
                             <input
                               type="email"
-                              name="emailAddress"
-                              id="emailAddress"
+                              name="email"
+                              id="email"
                               class="form-control bg-gray-50"
                               placeholder="name@example.com"
                             />
@@ -244,22 +236,22 @@
                               <div class="row gx-2">
                                 <div class="d-none d-md-block col-md-6">
                                   <button
+                                    id="btnCancel"
                                     type="button"
                                     class="cancel-btn py-2 px-3 text-gray-700 border-0 bg-gray-100 rounded-12px small fw-semibold w-100"
-                                    data-bs-dismiss="modal"
                                   >
                                     Cancel
                                   </button>
                                 </div>
                                 <div class="col-12 col-md-6">
                                   <button
+                                    id="btnSaveContact"
                                     type="button"
                                     class="save-btn py-2 px-3 text-white bg-violet-600 border-0 rounded-12px small fw-semibold w-100"
-                                    data-bs-dismiss="modal"
                                   >
                                     <div>
                                       <i class="fa-solid fa-check"></i>
-                                      <span>Save Contact</span>
+                                      Save Contact
                                     </div>
                                   </button>
                                 </div>
@@ -269,7 +261,6 @@
                         </div>
                       </div>
                     </div>
-                    <!-- ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
                   </li>
                   <li>
                     <span
@@ -325,7 +316,9 @@
                   <span class="text-gray-500 fs-12px fw-bold d-block"
                     >TOTAL</span
                   >
-                  <span class="total-number fs-4 fw-bold">0</span>
+                  <span id="TotalContacts" class="total-number fs-4 fw-bold"
+                    >0</span
+                  >
                 </div>
               </div>
             </div>
@@ -345,7 +338,11 @@
                   <span class="text-gray-500 fs-12px fw-bold d-block"
                     >FAVORITES</span
                   >
-                  <span class="favorites-number fs-4 fw-bold">0</span>
+                  <span
+                    id="totalFavorites"
+                    class="favorites-number fs-4 fw-bold"
+                    >0</span
+                  >
                 </div>
               </div>
             </div>
@@ -365,7 +362,11 @@
                   <span class="text-gray-500 fs-12px fw-bold d-block"
                     >EMERGENCY</span
                   >
-                  <span class="emergency-number fs-4 fw-bold">0</span>
+                  <span
+                    id="totalEmergency"
+                    class="emergency-number fs-4 fw-bold"
+                    >0</span
+                  >
                 </div>
               </div>
             </div>
@@ -378,7 +379,8 @@
                 <h2 class="fs-3 fw-bold mb-1">All Contacts</h2>
                 <span class="text-gray-500"
                   >Manage and organize your
-                  <span class="total-number">0</span> contacts</span
+                  <span id="TotalContacts2" class="total-number">0</span>
+                  contacts</span
                 >
                 <!-- input search -->
                 <div class="search-item input-group my-4">
@@ -386,9 +388,9 @@
                     ><i class="fa-solid fa-magnifying-glass text-gray-500"></i
                   ></span>
                   <input
-                    id="search-input"
+                    id="searchInput"
                     type="text"
-                    class="form-control"
+                    class="form-control border-0"
                     placeholder="Search by name, phone, or email..."
                     aria-label="Username"
                     aria-describedby="searchIcon"
@@ -396,7 +398,7 @@
                 </div>
               </div>
 
-              <div class="search-results row gx-3 gy-3">
+              <div id="searchResults" class="search-results row gx-3 gy-3">
                 <div class="no-results">
                   <!-- contact icon -->
                   <div
@@ -439,7 +441,10 @@
                       >
                     </div>
                   </div>
-                  <div class="marked-body bg-white p-3 row gx-2 gy-2">
+                  <div
+                    id="favoriteResult"
+                    class="marked-body bg-white p-3 row gx-2 gy-2"
+                  >
                     <div
                       class="marked-body__content d-flex align-items-center justify-content-center"
                     >
@@ -471,7 +476,10 @@
                       >
                     </div>
                   </div>
-                  <div class="marked-body bg-white p-3 row g-2">
+                  <div
+                    id="emergencyResult"
+                    class="marked-body bg-white p-3 row g-2"
+                  >
                     <div
                       class="marked-body__content d-flex align-items-center justify-content-center"
                     >
@@ -487,7 +495,7 @@
         </div>
       </div>
     </main>
-
+    <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
   </body>
