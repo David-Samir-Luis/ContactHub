@@ -46,6 +46,8 @@ var emergencyList = [];
 
 //* index of contact to update
 var updateIndex;
+
+//* flag to indicate user clicked addbtn or edit icon
 var addNewItemFlag;
 
 //* restore contacts from localStorage
@@ -54,16 +56,38 @@ if (localStorage.getItem("contactList")) {
   displayContacts(contactList);
 }
 
+function storeInLocalStorage() {
+  localStorage.setItem("contactList", JSON.stringify(contactList));
+}
+
 // ^  events
 
 // ^ addBtn event
 addBtn.addEventListener("click", function () {
   addNewItemFlag = true;
+
+  //* insert new contact so all regex flag are reset
   setIsvalidRegex(false);
 });
+
 //^ diplay the input photo in form whenever user change it
 inputImage.addEventListener("change", function () {
-  updateImageInForm(`images/${inputImage.files[0]?.name}`);
+  updateImageInForm(
+    inputImage.files[0] ? `images/${inputImage.files[0]?.name}` : false
+  );
+});
+
+// ^ fullName change event
+fullName.addEventListener("input", function () {
+  validateInputs(fullName);
+});
+// ^ phoneNumber change event
+phoneNumber.addEventListener("input", function () {
+  validateInputs(phoneNumber);
+});
+// ^ email change event
+email.addEventListener("input", function () {
+  validateInputs(email);
 });
 
 // ^ btnSaveContact event
@@ -107,19 +131,6 @@ xBtn.addEventListener("click", function () {
 // ^ searchInput event
 searchInput.addEventListener("input", function () {
   searchContact();
-});
-
-// ^ fullName change event
-fullName.addEventListener("input", function () {
-  validateInputs(fullName);
-});
-// ^ phoneNumber change event
-phoneNumber.addEventListener("input", function () {
-  validateInputs(phoneNumber);
-});
-// ^ email change event
-email.addEventListener("input", function () {
-  validateInputs(email);
 });
 
 function SaveContact() {
@@ -383,6 +394,7 @@ function displayContacts(list, searchflag) {
   //^ update Total Numbers
   updateTotalNumbers();
 }
+
 function getIndexFromId(id) {
   for (let i = 0; i < contactList.length; i++) {
     if (contactList[i].id === id) {
@@ -436,7 +448,22 @@ function deleteContact(id) {
     }
   });
 }
-//zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
+function addNewContact() {
+  var newcontact = {
+    id: contactList.length ? contactList.at(-1).id + 1 : 0,
+    imageSrc: inputImage.files[0] ? `images/${inputImage.files[0]?.name}` : 0,
+    fullName: fullName.value.trim(),
+    phoneNumber: phoneNumber.value,
+    email: email.value.trim(),
+    address: address.value.trim(),
+    group: group.value,
+    notes: notes.value.trim(),
+    favoriteCheckbox: favoriteCheckbox.checked,
+    emergencyCheckbox: emergencyCheckbox.checked,
+  };
+  contactList.push(newcontact);
+}
 function updateInputs(config) {
   //* if not set to null last inserted image will be
   //* always there and when add new contact it will be added to it
@@ -458,34 +485,17 @@ function updateInputs(config) {
   emergencyCheckbox.checked = config ? config.emergencyCheckbox : false;
 }
 
-function storeInLocalStorage() {
-  localStorage.setItem("contactList", JSON.stringify(contactList));
-}
 function getelementsToEdit(id) {
+  //* set regex isvalid to true ,since it's edit so all inputs are initially true unless user changed in inputs
+  //* as we aleady checked it in add new item
   setIsvalidRegex(true);
+
   addNewItemFlag = false;
   var index = getIndexFromId(id);
   updateIndex = index;
   updateInputs(contactList[index]);
 }
 
-function addNewContact() {
-  var newcontact = {
-    id: contactList.length ? contactList.at(-1).id + 1 : 0,
-    imageSrc: inputImage.files[0] ? `images/${inputImage.files[0]?.name}` : 0,
-    fullName: fullName.value.trim(),
-    phoneNumber: phoneNumber.value,
-    email: email.value.trim(),
-    address: address.value.trim(),
-    group: group.value,
-    notes: notes.value.trim(),
-    favoriteCheckbox: favoriteCheckbox.checked,
-    emergencyCheckbox: emergencyCheckbox.checked,
-  };
-  contactList.push(newcontact);
-}
-
-//z2
 function updateContact() {
   //* inputImage is input of type file and can't be set when getting values to update (we clear in updateInputs)
   //* so in updateContact you can't get the src of image from inputImage since it's cleared
@@ -496,6 +506,11 @@ function updateContact() {
   } else {
     contactList[updateIndex].imageSrc = 0;
   }
+
+  //!not working if user wanna remove the pic
+  // contactList[updateIndex].imageSrc = inputImage.files[0]
+  //   ? `images/${inputImage.files[0]?.name}`
+  //   : contactList[updateIndex].imageSrc;
 
   contactList[updateIndex].fullName = fullName.value.trim();
   contactList[updateIndex].phoneNumber = phoneNumber.value;
@@ -630,38 +645,36 @@ function validateInputs(element) {
 }
 
 function inputsAlert() {
-  var Duplicate = isDuplicateNumber(phoneNumber.value);
+  var Duplicate = isDuplicateNumber();
   var isAlert = false;
   var alertTitle = "";
   var alertText = "";
+
   if (fullName.value == "") {
-    var isAlert = true;
-    var alertTitle = "Missing Name";
-    var alertText = "Please enter a name for the contact!";
+    isAlert = true;
+    alertTitle = "Missing Name";
+    alertText = "Please enter a name for the contact!";
   } else if (!regex.fullName.isValid) {
-    var isAlert = true;
-    var alertTitle = "Invalid Name";
-    var alertText =
-      "Name should contain only letters and spaces (2-50 characters)";
+    isAlert = true;
+    alertTitle = "Invalid Name";
+    alertText = "Name should contain only letters and spaces (2-50 characters)";
   } else if (phoneNumber.value == "") {
-    var isAlert = true;
-    var alertTitle = "Missing Phone";
-    var alertText = "Please enter a phone number!";
+    isAlert = true;
+    alertTitle = "Missing Phone";
+    alertText = "Please enter a phone number!";
   } else if (!regex.phoneNumber.isValid) {
-    var isAlert = true;
-    var alertTitle = "Invalid Phone";
-    var alertText =
+    isAlert = true;
+    alertTitle = "Invalid Phone";
+    alertText =
       "Please enter a valid Egyptian phone number (e.g., 01012345678 or +201012345678)";
-  }
-  //* check duplication in case of new phone contact only (no check if edit)
-  else if (Duplicate) {
-    var isAlert = true;
-    var alertTitle = "Duplicate Phone Number";
-    var alertText = "A contact with this phone number already exists: david";
+  } else if (Duplicate) {
+    isAlert = true;
+    alertTitle = "Duplicate Phone Number";
+    alertText = `A contact with this phone number already exists: ${Duplicate}`;
   } else if (!regex.email.isValid) {
-    var isAlert = true;
-    var alertTitle = "Invalid Email";
-    var alertText = "Please enter a valid email address";
+    isAlert = true;
+    alertTitle = "Invalid Email";
+    alertText = "Please enter a valid email address";
   }
   if (isAlert) {
     Swal.fire({
@@ -670,19 +683,18 @@ function inputsAlert() {
       icon: "error",
       target: modalElement,
     });
-    isAlert = false;
     return false;
   } else {
     return true;
   }
 }
-function isDuplicateNumber(item) {
+function isDuplicateNumber() {
   for (let i = 0; i < contactList.length; i++) {
-    if (contactList[i].phoneNumber === item) {
+    if (contactList[i].phoneNumber === phoneNumber.value) {
       //* incase of add new contact if duplication was found it will return true
       //* incase of edit ,current contact shoulded be considered as duplication and look for other duplicate
       if (!(!addNewItemFlag && i === updateIndex)) {
-        return true;
+        return contactList[i].fullName;
       }
     }
   }
